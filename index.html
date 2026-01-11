@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sripat Singh College | Empowering Knowledge, Shaping Futures</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sscBlue: '#0f172a', // Navy / Slate 900
+                        sscGold: '#f59e0b', // Amber 500
+                        sscLight: '#f8fafc', // Slate 50
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0f172a;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1e293b;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50 antialiased">
+
+    <!-- TOP BAR -->
+    <div class="bg-sscBlue text-white py-2 text-sm hidden md:block border-b border-gray-700">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex space-x-4">
+                <span><i class="fas fa-phone-alt mr-2 text-sscGold"></i>+91 3483 255 351</span>
+                <span><i class="fas fa-envelope mr-2 text-sscGold"></i>info@sripatsinghcollege.edu.in</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#student-corner" class="hover:text-sscGold transition">Student Login</a>
+                <a href="#faculty" class="hover:text-sscGold transition">Staff Login</a>
+                <a href="#" class="hover:text-sscGold transition">Alumni</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-sscBlue rounded-full flex items-center justify-center text-white font-serif font-bold text-xl">S</div>
+                    <div class="leading-tight">
+                        <h1 class="text-xl md:text-2xl font-serif font-bold text-sscBlue uppercase tracking-wide">Sripat Singh College</h1>
+                        <p class="text-xs text-gray-500 font-semibold tracking-wider">ESTD. 1949 | NAAC ACCREDITED</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 font-semibold text-gray-700">
+                    <a href="#home" class="hover:text-sscBlue border-b-2 border-transparent hover:border-sscBlue transition py-2">Home</a>
+                    <a href="#about" class="hover:text-sscBlue border-b-2 border-transparent hover:border-sscBlue transition py-2">About</a>
+                    <a href="#academics" class="hover:text-sscBlue border-b-2 border-transparent hover:border-sscBlue transition py-2">Academics</a>
+                    <a href="#admission" class="hover:text-sscBlue border-b-2 border-transparent hover:border-sscBlue transition py-2">Admission</a>
+                    <a href="#campus" class="hover:text-sscBlue border-b-2 border-transparent hover:border-sscBlue transition py-2">Campus Life</a>
+                    <a href="#news" class="hover:text-sscBlue border-b-2 border-transparent hover:border-sscBlue transition py-2">Notices</a>
+                    <a href="#contact" class="hover:text-sscBlue border-b-2 border-transparent hover:border-sscBlue transition py-2">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="#admission" class="bg-sscGold text-sscBlue px-5 py-2 rounded font-bold hover:bg-yellow-400 transition shadow-sm">
+                        Apply Now
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-sscBlue text-2xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 pb-4">
+            <a href="#home" class="block px-4 py-3 hover:bg-gray-50 border-b">Home</a>
+            <a href="#about" class="block px-4 py-3 hover:bg-gray-50 border-b">About</a>
+            <a href="#academics" class="block px-4 py-3 hover:bg-gray-50 border-b">Academics</a>
+            <a href="#admission" class="block px-4 py-3 hover:bg-gray-50 border-b">Admission</a>
+            <a href="#campus" class="block px-4 py-3 hover:bg-gray-50 border-b">Campus Life</a>
+            <a href="#news" class="block px-4 py-3 hover:bg-gray-50 border-b">Notices</a>
+            <a href="#contact" class="block px-4 py-3 hover:bg-gray-50 border-b">Contact</a>
+            <div class="px-4 py-3">
+                <a href="#admission" class="block w-full text-center bg-sscGold text-sscBlue px-5 py-2 rounded font-bold hover:bg-yellow-400">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-bg min-h-[600px] flex items-center justify-center text-center px-4 relative">
+        <div class="max-w-4xl text-white animate-fade-in-up">
+            <span class="inline-block bg-sscGold text-sscBlue font-bold px-3 py-1 mb-4 text-sm rounded shadow">ADMISSIONS OPEN 2024-25</span>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4 leading-tight">Empowering Knowledge, <br/> Shaping Futures</h1>
+            <p class="text-lg md:text-xl mb-8 text-gray-200 font-light">A Legacy of Educational Excellence. Fostering Innovation, Integrity, and Intellect since 1949.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#admission" class="bg-sscGold text-sscBlue text-lg font-bold px-8 py-3 rounded shadow hover:bg-yellow-400 transition transform hover:-translate-y-1">Apply Now</a>
+                <a href="#academics" class="bg-transparent border-2 border-white text-white text-lg font-bold px-8 py-3 rounded hover:bg-white hover:text-sscBlue transition transform hover:-translate-y-1">Explore Courses</a>
+            </div>
+        </div>
+        
+        <!-- Quick Highlights strip (Absolute bottom) -->
+        <div class="hidden md:grid grid-cols-4 gap-4 absolute bottom-0 w-full bg-sscBlue/90 text-white py-6 border-t border-gray-600">
+            <div class="text-center border-r border-gray-600">
+                <h3 class="text-2xl font-bold text-sscGold">A+</h3>
+                <p class="text-sm">NAAC Accredited</p>
+            </div>
+            <div class="text-center border-r border-gray-600">
+                <h3 class="text-2xl font-bold text-sscGold">75+</h3>
+                <p class="text-sm">Years of Excellence</p>
+            </div>
+            <div class="text-center border-r border-gray-600">
+                <h3 class="text-2xl font-bold text-sscGold">5000+</h3>
+                <p class="text-sm">Students Enrolled</p>
+            </div>
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-sscGold">95%</h3>
+                <p class="text-sm">Pass Percentage</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS MARQUEE -->
+    <div class="bg-sscBlue text-white py-2 flex items-center">
+        <span class="bg-red-600 px-3 py-1 text-xs font-bold uppercase ml-4 mr-2 rounded">Latest News</span>
+        <marquee class="text-sm font-semibold" scrollamount="6">
+            Admission portal for UG Semester I (2024-2028) is now open. | Final Examination schedule for PG released. | College closed on 15th August for Independence Day Celebration. | Scholarship applications due by end of month.
+        </marquee>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div>
+                    <h4 class="text-sscGold font-bold uppercase tracking-wider mb-2">About Our College</h4>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-sscBlue mb-6">A Tradition of Academic Excellence</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Established in 1949, Sripat Singh College has grown into a premier institution of higher learning in the district. Named after the benevolent Sripat Singh, the college is dedicated to providing quality education to students from diverse backgrounds.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        We strive to create an environment where students can realize their potential and contribute meaningfully to society. Our sprawling campus, state-of-the-art infrastructure, and dedicated faculty ensure a holistic learning experience.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                        <div class="p-4 bg-gray-50 border-l-4 border-sscBlue rounded shadow-sm">
+                            <h3 class="font-bold text-sscBlue text-lg mb-2"><i class="fas fa-bullseye text-sscGold mr-2"></i>Mission</h3>
+                            <p class="text-sm text-gray-600">To impart value-based education and foster critical thinking.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 border-l-4 border-sscBlue rounded shadow-sm">
+                            <h3 class="font-bold text-sscBlue text-lg mb-2"><i class="fas fa-eye text-sscGold mr-2"></i>Vision</h3>
+                            <p class="text-sm text-gray-600">To be a center of excellence in higher education and research.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Principal Image/Message -->
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Principal" class="rounded-lg shadow-xl w-full object-cover h-[400px]">
+                    <div class="absolute -bottom-6 -left-6 md:right-auto md:left-10 bg-white p-6 rounded-lg shadow-lg border-t-4 border-sscGold max-w-xs">
+                        <p class="italic text-gray-600 mb-2">"Education is the most powerful weapon which you can use to change the world."</p>
+                        <h5 class="font-bold text-sscBlue">Dr. A. Sharma</h5>
+                        <span class="text-xs text-gray-500 uppercase">Principal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACADEMICS SECTION -->
+    <section id="academics" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h4 class="text-sscGold font-bold uppercase tracking-wider mb-2">Academics</h4>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-sscBlue">Departments & Courses</h2>
+                <div class="w-20 h-1 bg-sscGold mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Arts -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')">
+                        <div class="w-full h-full bg-sscBlue/60 group-hover:bg-sscBlue/40 transition flex items-center justify-center">
+                            <i class="fas fa-palette text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-sscBlue mb-2">Faculty of Arts</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Rich curriculum focusing on humanities, languages, and social sciences.</p>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Bengali, English, Sanskrit</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>History, Pol. Science, Philosophy</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Geography, Economics</li>
+                        </ul>
+                        <a href="#" class="text-sscBlue font-bold hover:text-sscGold transition text-sm">View Syllabus <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Science -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')">
+                        <div class="w-full h-full bg-sscBlue/60 group-hover:bg-sscBlue/40 transition flex items-center justify-center">
+                            <i class="fas fa-flask text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-sscBlue mb-2">Faculty of Science</h3>
+                        <p class="text-gray-600 mb-4 text-sm">State-of-the-art labs and research-oriented curriculum.</p>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Physics, Chemistry, Math</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Botany, Zoology</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Computer Science</li>
+                        </ul>
+                        <a href="#" class="text-sscBlue font-bold hover:text-sscGold transition text-sm">View Syllabus <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Commerce -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')">
+                        <div class="w-full h-full bg-sscBlue/60 group-hover:bg-sscBlue/40 transition flex items-center justify-center">
+                            <i class="fas fa-chart-line text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-sscBlue mb-2">Commerce</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Preparing future leaders in business and finance.</p>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Accountancy</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Business Studies</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Economics & Taxation</li>
+                        </ul>
+                        <a href="#" class="text-sscBlue font-bold hover:text-sscGold transition text-sm">View Syllabus <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="bg-white p-6 rounded-lg shadow inline-block w-full max-w-4xl">
+                    <h3 class="font-bold text-xl text-sscBlue mb-4">Academic Calendar Highlights</h3>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded">Sem 1 Starts: July</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded">Mid-Term: October</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded">Sem 1 Finals: December</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded">Sem 2 Starts: January</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMISSION SECTION -->
+    <section id="admission" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h4 class="text-sscGold font-bold uppercase tracking-wider mb-2">Join Us</h4>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-sscBlue">Admissions 2024-25</h2>
+                <div class="w-20 h-1 bg-sscGold mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Admission Info -->
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold text-sscBlue mb-6">Admission Process</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-sscBlue text-white font-bold">1</div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Online Registration</h4>
+                                <p class="text-gray-600 text-sm">Fill the basic details on the admission portal to generate Application ID.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-sscBlue text-white font-bold">2</div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Form Filling & Uploads</h4>
+                                <p class="text-gray-600 text-sm">Complete academic details and upload 10+2 marksheet, photo, and signature.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-sscBlue text-white font-bold">3</div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Merit List Publication</h4>
+                                <p class="text-gray-600 text-sm">Check the college website for merit list based on aggregate marks.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-sscBlue text-white font-bold">4</div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Counseling & Fee Payment</h4>
+                                <p class="text-gray-600 text-sm">Online document verification and payment of admission fees.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-sscBlue mt-10 mb-4">Fee Structure (1st Semester)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-sm text-left text-gray-600 border border-gray-200">
+                            <thead class="text-xs text-white uppercase bg-sscBlue">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">Course</th>
+                                    <th scope="col" class="px-6 py-3">Admission Fee</th>
+                                    <th scope="col" class="px-6 py-3">Tuition Fee (Monthly)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b">
+                                    <td class="px-6 py-4 font-medium text-gray-900">B.A. (Honours)</td>
+                                    <td class="px-6 py-4">₹ 2,500</td>
+                                    <td class="px-6 py-4">₹ 150</td>
+                                </tr>
+                                <tr class="bg-gray-50 border-b">
+                                    <td class="px-6 py-4 font-medium text-gray-900">B.Sc. (Honours)</td>
+                                    <td class="px-6 py-4">₹ 3,200</td>
+                                    <td class="px-6 py-4">₹ 250</td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <td class="px-6 py-4 font-medium text-gray-900">B.Com (Honours)</td>
+                                    <td class="px-6 py-4">₹ 2,800</td>
+                                    <td class="px-6 py-4">₹ 200</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Dummy Application Form -->
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-2xl font-bold text-sscBlue mb-6 text-center">Quick Enquiry / Pre-Apply</h3>
+                        <form onsubmit="event.preventDefault(); alert('Application Enquiry Submitted Successfully!');" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">First Name</label>
+                                    <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:border-sscBlue focus:ring-sscBlue" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Last Name</label>
+                                    <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:border-sscBlue focus:ring-sscBlue" required>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:border-sscBlue focus:ring-sscBlue" required>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                <input type="tel" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:border-sscBlue focus:ring-sscBlue" required>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Select Stream</label>
+                                <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:border-sscBlue focus:ring-sscBlue">
+                                    <option>B.A. (Arts)</option>
+                                    <option>B.Sc. (Science)</option>
+                                    <option>B.Com. (Commerce)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Previous Marks (%)</label>
+                                <input type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:border-sscBlue focus:ring-sscBlue" placeholder="e.g. 85">
+                            </div>
+
+                            <button type="submit" class="w-full bg-sscBlue text-white font-bold py-3 rounded hover:bg-blue-800 transition shadow">
+                                Submit Enquiry
+                            </button>
+                            <p class="text-xs text-center text-gray-500 mt-2">This is a preliminary enquiry. Final admission requires full document verification.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACULTY SECTION -->
+    <section id="faculty" class="py-16 bg-sscBlue text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h4 class="text-sscGold font-bold uppercase tracking-wider mb-2">Mentors</h4>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold">Our Distinguished Faculty</h2>
+                <div class="w-20 h-1 bg-sscGold mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Faculty 1 -->
+                <div class="bg-white text-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://ui-avatars.com/api/?name=R+K&background=0D8ABC&color=fff&size=200" alt="Prof" class="w-full h-48 object-cover bg-gray-200">
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-xl text-sscBlue">Dr. Rajesh Kumar</h3>
+                        <p class="text-sm text-sscGold font-semibold mb-2">HOD, Physics</p>
+                        <p class="text-xs text-gray-500">Ph.D, M.Sc (Gold Medalist)</p>
+                        <p class="text-xs text-gray-500">20 Years Experience</p>
+                    </div>
+                </div>
+                <!-- Faculty 2 -->
+                <div class="bg-white text-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://ui-avatars.com/api/?name=S+B&background=f59e0b&color=fff&size=200" alt="Prof" class="w-full h-48 object-cover bg-gray-200">
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-xl text-sscBlue">Prof. Smita Bose</h3>
+                        <p class="text-sm text-sscGold font-semibold mb-2">Dept. of English</p>
+                        <p class="text-xs text-gray-500">M.A., M.Phil</p>
+                        <p class="text-xs text-gray-500">15 Years Experience</p>
+                    </div>
+                </div>
+                <!-- Faculty 3 -->
+                <div class="bg-white text-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://ui-avatars.com/api/?name=A+M&background=0D8ABC&color=fff&size=200" alt="Prof" class="w-full h-48 object-cover bg-gray-200">
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-xl text-sscBlue">Dr. Anirban Mukherjee</h3>
+                        <p class="text-sm text-sscGold font-semibold mb-2">HOD, Mathematics</p>
+                        <p class="text-xs text-gray-500">Ph.D, Post Doc</p>
+                        <p class="text-xs text-gray-500">18 Years Experience</p>
+                    </div>
+                </div>
+                <!-- Faculty 4 -->
+                <div class="bg-white text-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://ui-avatars.com/api/?name=P+G&background=f59e0b&color=fff&size=200" alt="Prof" class="w-full h-48 object-cover bg-gray-200">
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-xl text-sscBlue">Prof. Priya Gupta</h3>
+                        <p class="text-sm text-sscGold font-semibold mb-2">Dept. of Economics</p>
+                        <p class="text-xs text-gray-500">M.Sc, NET Qualified</p>
+                        <p class="text-xs text-gray-500">10 Years Experience</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="border border-white text-white px-6 py-2 rounded hover:bg-white hover:text-sscBlue transition">View All Faculty</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS LIFE & STUDENT CORNER -->
+    <section id="campus" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Campus Facilities -->
+                <div>
+                    <h3 class="text-2xl font-bold text-sscBlue mb-6 border-l-4 border-sscGold pl-3">Campus Life & Facilities</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded shadow text-center hover:shadow-md transition">
+                            <i class="fas fa-book-reader text-3xl text-sscBlue mb-3"></i>
+                            <h4 class="font-bold">Central Library</h4>
+                            <p class="text-xs text-gray-500 mt-1">30,000+ Books & Journals</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow text-center hover:shadow-md transition">
+                            <i class="fas fa-flask text-3xl text-sscBlue mb-3"></i>
+                            <h4 class="font-bold">Modern Labs</h4>
+                            <p class="text-xs text-gray-500 mt-1">Physics, Chemistry & Bio Labs</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow text-center hover:shadow-md transition">
+                            <i class="fas fa-futbol text-3xl text-sscBlue mb-3"></i>
+                            <h4 class="font-bold">Sports Complex</h4>
+                            <p class="text-xs text-gray-500 mt-1">Playground & Indoor Games</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow text-center hover:shadow-md transition">
+                            <i class="fas fa-desktop text-3xl text-sscBlue mb-3"></i>
+                            <h4 class="font-bold">Computer Lab</h4>
+                            <p class="text-xs text-gray-500 mt-1">High-speed Internet Access</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow text-center hover:shadow-md transition">
+                            <i class="fas fa-bed text-3xl text-sscBlue mb-3"></i>
+                            <h4 class="font-bold">Hostel</h4>
+                            <p class="text-xs text-gray-500 mt-1">Boys & Girls Accommodation</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow text-center hover:shadow-md transition">
+                            <i class="fas fa-utensils text-3xl text-sscBlue mb-3"></i>
+                            <h4 class="font-bold">Canteen</h4>
+                            <p class="text-xs text-gray-500 mt-1">Hygienic & Healthy Food</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Corner -->
+                <div id="student-corner">
+                    <h3 class="text-2xl font-bold text-sscBlue mb-6 border-l-4 border-sscGold pl-3">Student Corner</h3>
+                    <div class="bg-white rounded-lg shadow-md p-6 border-t-2 border-sscBlue">
+                        <div class="space-y-4">
+                            <!-- Student Login Dummy -->
+                            <form class="bg-gray-50 p-4 rounded border border-gray-200">
+                                <h4 class="font-bold text-gray-700 mb-3"><i class="fas fa-user-graduate mr-2"></i>Student Login</h4>
+                                <div class="flex flex-col space-y-2">
+                                    <input type="text" placeholder="Student ID" class="text-sm p-2 border rounded">
+                                    <input type="password" placeholder="Password" class="text-sm p-2 border rounded">
+                                    <button class="bg-sscBlue text-white text-sm py-2 rounded hover:bg-blue-800">Login</button>
+                                </div>
+                            </form>
+
+                            <div class="grid grid-cols-1 gap-2">
+                                <a href="#" class="flex items-center p-3 bg-gray-50 rounded hover:bg-gray-100 transition">
+                                    <div class="bg-green-100 text-green-600 w-8 h-8 rounded-full flex items-center justify-center mr-3"><i class="fas fa-trophy"></i></div>
+                                    <span class="text-sm font-semibold">Scholarship Information</span>
+                                </a>
+                                <a href="#" class="flex items-center p-3 bg-gray-50 rounded hover:bg-gray-100 transition">
+                                    <div class="bg-purple-100 text-purple-600 w-8 h-8 rounded-full flex items-center justify-center mr-3"><i class="fas fa-poll"></i></div>
+                                    <span class="text-sm font-semibold">Exam Results</span>
+                                </a>
+                                <a href="#" class="flex items-center p-3 bg-gray-50 rounded hover:bg-gray-100 transition">
+                                    <div class="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center mr-3"><i class="fas fa-download"></i></div>
+                                    <span class="text-sm font-semibold">Download Class Routine</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NSS/NCC -->
+                    <div class="mt-6 flex space-x-4">
+                        <div class="flex-1 bg-white p-4 rounded shadow border-l-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-900">NSS Unit</h5>
+                            <p class="text-xs text-gray-500">Social Service Activities</p>
+                        </div>
+                        <div class="flex-1 bg-white p-4 rounded shadow border-l-4 border-orange-500">
+                            <h5 class="font-bold text-orange-900">NCC Unit</h5>
+                            <p class="text-xs text-gray-500">Army & Navy Wing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h4 class="text-sscGold font-bold uppercase tracking-wider mb-2">Visual Tour</h4>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-sscBlue">Photo Gallery</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Campus Main" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">Main Building</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg h-48 md:h-auto">
+                    <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Lab" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">Physics Lab</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg h-48 md:h-auto">
+                    <img src="https://images.unsplash.com/photo-1576495199011-eb94736d05d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Seminar" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">Convocation</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg h-48 md:h-auto">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Classroom" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">Smart Classroom</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg h-48 md:h-auto">
+                    <img src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Library" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">Library</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS & NOTICES -->
+    <section id="news" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-serif font-bold text-sscBlue mb-8 text-center">Notices & Announcements</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Notice Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                    <span class="text-xs font-bold text-gray-500">Jan 10, 2026</span>
+                    <h3 class="text-lg font-bold text-gray-900 mt-2 hover:text-red-600 cursor-pointer">Registration for Annual Sports Meet 2026</h3>
+                    <p class="text-sm text-gray-600 mt-2">All students interested in participating in the Annual Sports Meet must register with the Games teacher by 20th Jan.</p>
+                    <a href="#" class="text-red-500 text-sm font-bold mt-4 inline-block">Read More <i class="fas fa-angle-right"></i></a>
+                </div>
+
+                <!-- Notice Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-sscBlue">
+                    <span class="text-xs font-bold text-gray-500">Jan 05, 2026</span>
+                    <h3 class="text-lg font-bold text-gray-900 mt-2 hover:text-sscBlue cursor-pointer">Revised Syllabus for B.Sc. Sem IV</h3>
+                    <p class="text-sm text-gray-600 mt-2">The university has updated the syllabus for Physics and Chemistry Honours papers effective immediately.</p>
+                    <a href="#" class="text-sscBlue text-sm font-bold mt-4 inline-block">Download PDF <i class="fas fa-angle-right"></i></a>
+                </div>
+
+                <!-- Notice Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-sscGold">
+                    <span class="text-xs font-bold text-gray-500">Dec 28, 2025</span>
+                    <h3 class="text-lg font-bold text-gray-900 mt-2 hover:text-sscGold cursor-pointer">Holiday Notice: Winter Recess</h3>
+                    <p class="text-sm text-gray-600 mt-2">The college will remain closed for Winter Recess from Dec 30th to Jan 2nd. Office will remain open.</p>
+                    <a href="#" class="text-sscGold text-sm font-bold mt-4 inline-block">Read More <i class="fas fa-angle-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-block bg-sscBlue text-white px-6 py-2 rounded hover:bg-blue-800 transition shadow">View Archive</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h4 class="text-sscGold font-bold uppercase tracking-wider mb-2">Get in Touch</h4>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-sscBlue">Contact Us</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-inner">
+                    <h3 class="text-2xl font-bold text-sscBlue mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-sscGold text-xl mt-1 w-8"></i>
+                            <div>
+                                <h4 class="font-bold">Address</h4>
+                                <p class="text-gray-600">Sripat Singh College,<br>P.O. Jiaganj, Dist. Murshidabad,<br>West Bengal, India, 742123</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-sscGold text-xl w-8"></i>
+                            <div>
+                                <h4 class="font-bold">Phone</h4>
+                                <p class="text-gray-600">+91 3483 255 351</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-sscGold text-xl w-8"></i>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-gray-600">office@sripatsinghcollege.edu.in</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-sscGold text-xl w-8"></i>
+                            <div>
+                                <h4 class="font-bold">Office Hours</h4>
+                                <p class="text-gray-600">Mon - Sat: 10:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder Map -->
+                    <div class="mt-8 h-48 bg-gray-300 rounded overflow-hidden flex items-center justify-center relative">
+                        <img src="https://via.placeholder.com/600x300.png?text=Google+Map+Embed+Area" alt="Map" class="w-full h-full object-cover opacity-50">
+                        <span class="absolute text-gray-800 font-bold"><i class="fas fa-map-marked-alt mr-2"></i>Google Map Embed</span>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-2xl font-bold text-sscBlue mb-6">Send us a Message</h3>
+                    <form onsubmit="event.preventDefault(); alert('Message sent successfully!');" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Name</label>
+                                <input type="text" class="mt-1 w-full rounded-md border-gray-300 border p-3 focus:border-sscBlue focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Phone</label>
+                                <input type="tel" class="mt-1 w-full rounded-md border-gray-300 border p-3 focus:border-sscBlue focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" class="mt-1 w-full rounded-md border-gray-300 border p-3 focus:border-sscBlue focus:outline-none" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Subject</label>
+                            <select class="mt-1 w-full rounded-md border-gray-300 border p-3 focus:border-sscBlue focus:outline-none">
+                                <option>General Enquiry</option>
+                                <option>Admission</option>
+                                <option>Examination</option>
+                                <option>Feedback</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Message</label>
+                            <textarea rows="4" class="mt-1 w-full rounded-md border-gray-300 border p-3 focus:border-sscBlue focus:outline-none" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-sscBlue text-white font-bold py-3 px-8 rounded hover:bg-blue-800 transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-sscBlue text-white pt-16 pb-8 border-t-4 border-sscGold">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Col 1 -->
+                <div>
+                    <h3 class="font-serif text-xl font-bold mb-4">Sripat Singh College</h3>
+                    <p class="text-gray-400 text-sm mb-4">Empowering students with knowledge, skills, and values to face the challenges of tomorrow.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center hover:bg-sky-400 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-500 transition"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-pink-600 flex items-center justify-center hover:bg-pink-500 transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-sscGold">Quick Links</h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#admission" class="hover:text-white transition">Admission Policy</a></li>
+                        <li><a href="#faculty" class="hover:text-white transition">Faculty Members</a></li>
+                        <li><a href="#gallery" class="hover:text-white transition">Photo Gallery</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-sscGold">Important Links</h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><a href="#" class="hover:text-white transition">University Website</a></li>
+                        <li><a href="#" class="hover:text-white transition">UGC Website</a></li>
+                        <li><a href="#" class="hover:text-white transition">NAAC</a></li>
+                        <li><a href="#" class="hover:text-white transition">National Scholarship Portal</a></li>
+                        <li><a href="#" class="hover:text-white transition">Anti-Ragging Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-sscGold">Newsletter</h3>
+                    <p class="text-gray-400 text-sm mb-4">Subscribe to our newsletter for latest updates.</p>
+                    <form onsubmit="event.preventDefault();" class="flex">
+                        <input type="email" placeholder="Your Email" class="px-3 py-2 text-gray-800 rounded-l w-full focus:outline-none">
+                        <button class="bg-sscGold text-sscBlue px-4 py-2 rounded-r font-bold hover:bg-yellow-400">Go</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024-2026 Sripat Singh College. All Rights Reserved.</p>
+                <p class="mt-2">Designed for Educational Purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const links = menu.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Simple Fade in on scroll effect (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('opacity-100'); // Ensure visible by default for simplicity, handled by CSS animation classes usually
+        });
+    </script>
+</body>
+</html>
+
